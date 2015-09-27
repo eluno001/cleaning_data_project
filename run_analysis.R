@@ -34,3 +34,7 @@ mean_sd_data[,2]<-activity[mean_sd_data[,2],2]
 library(dplyr)
 summary <- summarise_each(group_by(mean_sd_data,subject,test_label),funs(mean))
 head(summary[,1:2],n=20)
+
+
+# Output tidy table
+write.table(summary,file="tidy_data.txt",row.name=FALSE)
